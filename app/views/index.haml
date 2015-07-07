@@ -1,0 +1,13 @@
+%h1 Robots
+
+- @robots.each do |robot|
+  %ul
+    %li
+      %img{ src: robot.avatar }
+    %li= robot.id
+    %li= robot.name
+    %li= robot.city
+    %li= robot.planet
+    %li= robot.birthdate
+    %li= robot.hire_date
+    %li= robot.category

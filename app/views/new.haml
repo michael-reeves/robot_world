@@ -1,0 +1,30 @@
+%form{ action: "/robots", method: "POST" }
+  %p New Robot
+  %ul
+    %li
+      %label{ for: "name" } Name:
+      %input{ type: "text", id: "name", name: "robot[name]" }
+    %li
+      %label{ for: "city" } City:
+      %input{ type: "text", id: "city", name: "robot[city]" }
+    %li
+      %label{ for: "planet" } Planet:
+      %input{ type: "text", id: "planet", name: "robot[planet]" }
+    %li
+      %label{ for: "birthdate"} Birthdate:
+      %input{ type: "date", id: "birthdate", name: "robot[birthdate]" }
+    %li
+      %label{ for: "hire_date"} Hire Date:
+      %input{ type: "date", id: "hire_date", name: "robot[hire_date]" }
+    %li
+      %label{ for: "category" } Type:
+      %select{ id: "category", name: "robot[category]" }
+        %option{ value: "Protocol"} Protocol
+        %option{ value: "Astro Mech" } Astro Mech
+        %option{ value: "Medical" } Medical
+        %option{ value: "Battle" } Battle
+        %option{ value: "Engineering" } Engineering
+        %option{ value: "Maintenance" } Maintenance
+        %option{ value: "Interrogation" } Interrogation
+    %li
+      %input{ type: "submit", value: "Create"}
