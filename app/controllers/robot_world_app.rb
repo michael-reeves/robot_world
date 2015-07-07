@@ -23,4 +23,9 @@ class RobotWorldApp < Sinatra::Base
     haml :index
   end
 
+  get '/robots/:id' do |id|
+    @robot = RobotManager.find(id.to_i)
+    haml :show
+  end
+
 end

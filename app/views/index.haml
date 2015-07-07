@@ -2,12 +2,7 @@
 
 - @robots.each do |robot|
   %ul
-    %li
-      %img{ src: robot.avatar }
     %li= robot.id
+    %li
+      %img{ src: robot.avatar, width: "60px" }
     %li= robot.name
-    %li= robot.city
-    %li= robot.planet
-    %li= robot.birthdate
-    %li= robot.hire_date
-    %li= robot.category
