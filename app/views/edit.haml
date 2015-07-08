@@ -1,0 +1,31 @@
+%form{ action: "/robots/#{@robot.id}", method: "POST" }
+  %p Edit Robot
+  %ul
+    %input{ type: "hidden", name: "_method", value: "PUT"}
+    %li
+      %label{ for: "name" } Name:
+      %input{ type: "text", id: "name", name: "robot[name]", value: "#{@robot.name}" }
+    %li
+      %label{ for: "city" } City:
+      %input{ type: "text", id: "city", name: "robot[city]", value: "#{@robot.city}" }
+    %li
+      %label{ for: "planet" } Planet:
+      %input{ type: "text", id: "planet", name: "robot[planet]", value: "#{@robot.planet}" }
+    %li
+      %label{ for: "birthdate"} Birthdate:
+      %input{ type: "date", id: "birthdate", name: "robot[birthdate]", value: "#{@robot.birthdate}" }
+    %li
+      %label{ for: "hire_date"} Hire Date:
+      %input{ type: "date", id: "hire_date", name: "robot[hire_date]", value: "#{@robot.hire_date}" }
+    %li
+      %label{ for: "category" } Type:
+      %select{ id: "category", name: "robot[category]" }
+        %option{ value: "Protocol", selected: @robot.category == 'Protocol' } Protocol
+        %option{ value: "Astro Mech", selected: @robot.category == 'Astro Mech' } Astro Mech
+        %option{ value: "Medical", selected: @robot.category == 'Medical' } Medical
+        %option{ value: "Battle", selected: @robot.category == 'Battle' } Battle
+        %option{ value: "Engineering", selected: @robot.category == 'Engineering' } Engineering
+        %option{ value: "Maintenance", selected: @robot.category == 'Maintenance' } Maintenance
+        %option{ value: "Interrogation", selected: @robot.category == 'Interrogation' } Interrogation
+    %li
+      %input{ type: "submit", value: "Update"}

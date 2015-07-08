@@ -2,7 +2,9 @@
 
 - @robots.each do |robot|
   %ul
-    %li= robot.id
+    %li
+      %a{ href: robot.id } #{robot.id}
     %li
       %img{ src: robot.avatar, width: "60px" }
     %li= robot.name
+    %a{ href: "/robots/#{robot.id}/edit"} edit
