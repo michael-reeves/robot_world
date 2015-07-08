@@ -40,6 +40,12 @@ class RobotWorldApp < Sinatra::Base
     redirect "/robots/#{id}"
   end
 
+  # Delete
+  delete '/robots/:id' do |id|
+    RobotManager.delete(id.to_i)
+    redirect '/robots'
+  end
+
   not_found do
     haml :error
   end

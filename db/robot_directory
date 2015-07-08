@@ -16,12 +16,4 @@ robots:
   birthdate: 12/1/1999
   hire_date: 9/1/2001
   category: Astro Mech
-- id: 3
-  avatar: http://robohash.org/3
-  name: 2-1B
-  city: Cloud City
-  planet: Dantooine
-  birthdate: 1/2/2011
-  hire_date: 11/12/2013
-  category: Medical
 counter: 3

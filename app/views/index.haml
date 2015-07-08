@@ -7,4 +7,8 @@
     %li
       %img{ src: robot.avatar, width: "60px" }
     %li= robot.name
-    %a{ href: "/robots/#{robot.id}/edit"} edit
+    %button
+      %a{ href: "/robots/#{robot.id}/edit"} edit
+    %form{ action: "/robots/#{robot.id}", method: "POST" }
+      %input{ type: "hidden", name: "_method", value: "DELETE"}
+      %input{ type: "submit", value: "delete"}
