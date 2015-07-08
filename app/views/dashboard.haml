@@ -1,4 +1,26 @@
 %h1 Robots
+#average_age
+  %h4
+    Average Robot Age:
+    %span#age #{@count} yrs
+#robots_hired
+  %h4 Robots Hired per Year:
+  %table
+    %thead
+      %th Year
+      %th #
+    - @robots_by_hired_year.each do |year, robots|
+      %tr
+        %td= year
+        %td= robots.count
 
-Average Robot Age:
-Robots Hired:
+#robots_by_category
+  %h4 Robots per Category
+  %table
+    %thead
+      %th Category
+      %th #
+    - @robots_by_category.each do |category, robots|
+      %tr
+        %td= category
+        %td= robots.count

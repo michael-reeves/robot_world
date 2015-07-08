@@ -64,4 +64,28 @@ class RobotManager
     end
   end
 
+
+  # Dashboard Features
+  def self.count
+    database.transaction do
+      database['robots'].count
+    end
+  end
+
+  def self.average_age
+    sum = all.reduce(0) do |tot, robot|
+      tot + ((Date.today - Date.parse(robot.birthdate)).to_i / 365.25)
+    end
+
+    "%0.2f" % ( sum / count )
+  end
+
+  def self.robots_by_hired_year
+    all.group_by { |robot| Date.parse(robot.hire_date).year }
+  end
+
+  def self.robots_by_category
+    all.group_by(&:category)
+  end
+
 end

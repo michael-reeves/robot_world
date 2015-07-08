@@ -5,6 +5,9 @@ class RobotWorldApp < Sinatra::Base
   set :method_override, true
 
   get '/' do
+    @count = RobotManager.average_age
+    @robots_by_hired_year = RobotManager.robots_by_hired_year
+    @robots_by_category = RobotManager.robots_by_category
     haml :dashboard
   end
 
