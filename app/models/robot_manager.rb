@@ -1,27 +1,30 @@
 require 'yaml/store'
-require_relative 'robot'
 
 class RobotManager
 
   def self.database
-    @database ||= YAML::Store.new("db/robot_directory")
+    if ENV['TASK_MANAGER_ENV'] == 'test'
+      @database ||= YAML::Store.new("db/robot_directory_test")
+    else
+      @database ||= YAML::Store.new("db/robot_directory")
+    end
   end
 
   # Create
   def self.create(robot)
     database.transaction do
-      database['robots'] ||= []
-      database['counter']  ||= 0
-      database['counter']   += 1
-      database['robots'] << { "id"        => database['counter'],
-                              "avatar"    => "http://robohash.org/#{database['counter']}",
-                              "name"      => robot[:name],
-                              "city"      => robot[:city],
-                              "planet"    => robot[:planet],
-                              "birthdate" => robot[:birthdate],
-                              "hire_date" => robot[:hire_date],
-                              "category"  => robot[:category]
-                            }
+      database['robots']  ||= []
+      database['counter'] ||= 0
+      database['counter']  += 1
+      database['robots']   << { "id"        => database['counter'],
+                                "avatar"    => "http://robohash.org/#{database['counter']}",
+                                "name"      => robot[:name],
+                                "city"      => robot[:city],
+                                "planet"    => robot[:planet],
+                                "birthdate" => robot[:birthdate],
+                                "hire_date" => robot[:hire_date],
+                                "category"  => robot[:category]
+                              }
     end
   end
 
@@ -86,6 +89,14 @@ class RobotManager
 
   def self.robots_by_category
     all.group_by(&:category)
+  end
+
+  # Testing
+  def self.delete_all
+    database.transaction do
+      database['robots']  = []
+      database['counter'] = 0
+    end
   end
 
 end

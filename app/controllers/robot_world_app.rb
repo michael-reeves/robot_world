@@ -1,8 +1,5 @@
-require 'models/robot_manager'
 
 class RobotWorldApp < Sinatra::Base
-  set :root, File.join(File.dirname(__FILE__), '..')
-  set :method_override, true
 
   get '/' do
     @count = RobotManager.average_age
@@ -52,4 +49,5 @@ class RobotWorldApp < Sinatra::Base
   not_found do
     haml :error
   end
+
 end
