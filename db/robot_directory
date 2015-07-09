@@ -9,7 +9,7 @@ robots:
   hire_date: 3/4/2014
   category: Protocol
 - id: 2
-  avatar: http:/robohash.org/2
+  avatar: http://robohash.org/2
   name: R2D2
   city: Sioux City
   planet: Degobah
