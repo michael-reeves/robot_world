@@ -3,12 +3,11 @@
 - @robots.each do |robot|
   %ul
     %li
-      %a{ href: robot.id } #{robot.id}
+      %a{ href: "/robots/#{robot.id}" } #{robot.id}
     %li
       %img{ src: robot.avatar, width: "60px" }
     %li= robot.name
-    %button
-      %a{ href: "/robots/#{robot.id}/edit"} edit
+    %a{ class: "mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect", href: "/robots/#{robot.id}/edit"} edit
     %form{ action: "/robots/#{robot.id}", method: "POST" }
       %input{ type: "hidden", name: "_method", value: "DELETE"}
-      %input{ type: "submit", value: "delete"}
+      %input{ class: "mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect", type: "submit", value: "delete"}
