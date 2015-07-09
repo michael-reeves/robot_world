@@ -12,7 +12,7 @@ Dir.glob(File.join(APP_ROOT, 'app', 'models', '*.rb')).each { |file| require fil
 
 
 # configure RobotManager settings
-class RobotManager < Sinatra::Base
+class RobotWorldApp < Sinatra::Base
   set :method_override, true
   set :root, APP_ROOT
   set :views, File.join(APP_ROOT, 'app', 'views')
