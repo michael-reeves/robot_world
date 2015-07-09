@@ -5,6 +5,7 @@ GEM
     eventmachine (1.0.7)
     haml (4.0.6)
       tilt
+    minitest (5.4.3)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -25,6 +26,7 @@ PLATFORMS
 
 DEPENDENCIES
   haml
+  minitest
   shotgun
   sinatra
   thin
