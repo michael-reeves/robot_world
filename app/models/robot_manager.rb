@@ -80,7 +80,7 @@ class RobotManager
       tot + ((Date.today - Date.parse(robot.birthdate)).to_i / 365.25)
     end
 
-    "%0.2f" % ( sum / count )
+    "%0.2f" % ( sum / count ) unless count == 0
   end
 
   def self.robots_by_hired_year
