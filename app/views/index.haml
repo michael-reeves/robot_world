@@ -6,7 +6,7 @@
       %li{ id: "#{robot.id}" }
         #{robot.id}
       %li
-        %img{ id: "avatar#{robot.id}", src: robot.avatar, width: "60px" }
+        %img{ id: "avatar#{robot.id}", src: "http://robohash.org/#{robot.id}", width: "60px" }
       %li= robot.name
     %a{ class: "mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect", href: "/robots/#{robot.id}/edit"} edit
     %form{ action: "/robots/#{robot.id}", method: "POST" }

@@ -54,14 +54,14 @@ class RobotManager
 
   def self.average_age
     sum = all.reduce(0) do |tot, robot|
-      tot + ((Date.today - Date.parse(robot.birthdate)).to_i / 365.25)
+      tot + ( (Date.today - robot.birthdate.to_date) / 365.25 )
     end
 
     "%0.2f" % ( sum / count ) unless count == 0
   end
 
   def self.robots_by_hired_year
-    all.group_by { |robot| Date.parse(robot.hire_date).year }
+    all.group_by { |robot| robot.hire_date.year }
   end
 
   def self.robots_by_category
